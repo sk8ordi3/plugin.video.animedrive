@@ -371,7 +371,7 @@ class navigator:
                     episode_name = link.get_text(strip=True)
                     episode_href = link['href']
                     
-                    resz_link = f'{base_url}/watch/{episode_href}'
+                    resz_link = quote_plus(f'{base_url}/watch/{episode_href}')
                 
                     try:
                         self.addDirectoryItem(f'[B]{episode_name} - {title}[/B]', f'episodes&url={resz_link}&episode_name={episode_name}&img={img}&descr={descr}&title={title}', img, 'DefaultMovies.png', isFolder=True, meta={'title': episode_name, 'plot': descr})
@@ -385,7 +385,7 @@ class navigator:
                 episode_links = soup.find('iframe')['src']
                 if episode_links:
                     resz = re.findall(r'(\?id=.*)', episode_links)[0].strip()
-                    resz_link = f'{base_url}/watch/{resz}'
+                    resz_link = quote_plus(f'{base_url}/watch/{resz}')
                     get_title_text = soup.title.text
                     title_parts = [part.strip() for part in get_title_text.split('|')]
                     episode_name = ' '.join(title_parts[2:]).strip()

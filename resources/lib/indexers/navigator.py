@@ -66,7 +66,7 @@ class navigator:
         self.endDirectory()
         
     def getCategories(self):
-        page = requests.get(f"{base_url}/search/")
+        page = requests.get(f"{base_url}/search/", headers=headers)
         soup = BeautifulSoup(page.text, 'html.parser')
 
         div_element = soup.find('div', class_='kereso-reszletes-mufaj-mufajok')
@@ -81,7 +81,7 @@ class navigator:
         self.endDirectory()        
 
     def getItems(self, url, title, img, descr):
-        page = requests.get(url)
+        page = requests.get(url, headers=headers)
         soup = BeautifulSoup(page.text, 'html.parser')
 
         cards = soup.find_all('div', class_='col-6 col-sm-4 col-md-3 col-xl-2')
@@ -278,7 +278,7 @@ class navigator:
         self.endDirectory('movies')
 
     def getSeriesItems(self, url, img, descr):
-        page = requests.get(url)
+        page = requests.get(url, headers=headers)
         soup = BeautifulSoup(page.text, 'html.parser')
         cards = soup.find_all('div', class_='col-6 col-sm-4 col-md-3 col-xl-2')
         
@@ -406,7 +406,7 @@ class navigator:
         self.endDirectory('series')
 
     def getEpisodes(self, url, episode_name, img, descr, title):
-        page = requests.get(url)
+        page = requests.get(url, headers=headers)
         soup = BeautifulSoup(page.text, 'html.parser')
 
         iframe_tag = soup.find('iframe')

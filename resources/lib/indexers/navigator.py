@@ -24,6 +24,7 @@ import requests
 import urllib.parse
 from resources.lib.modules.utils import py2_decode, py2_encode
 import html
+import random
 
 sysaddon = sys.argv[0]
 syshandle = int(sys.argv[1])

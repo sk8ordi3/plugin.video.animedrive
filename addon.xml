@@ -15,6 +15,7 @@
 		<language>hu</language>
 		<platform>all</platform>
 		<news> 		
+			1.0.1 - random user-agent használata
 			1.0.0 - Első verzió
 		</news>
 		<assets>
